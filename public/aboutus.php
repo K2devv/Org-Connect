@@ -1,10 +1,13 @@
+<?php include('db_config.php'); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="css/aboutus.css">
+    <link rel="stylesheet" href="../css/aboutus.css">
     
     <link
     rel="stylesheet"
@@ -29,7 +32,7 @@
     <nav class="navbar">
 
         <div class="nav-logo">
-            <img src="images/longlogo.png" alt="Org Connect Logo">
+            <img src="../images/longlogo.png" alt="Org Connect Logo">
         </div>
             
         <div class="nav-links">
@@ -49,8 +52,8 @@
 
             <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
             <label for="darkmode-toggle">
-                <img src="images/earth-15-svgrepo-com.svg" class="sun" alt="SVG Icon">
-                <img src="images/earth-15-svgrepo-com.svg" class="moon" alt="SVG Icon">
+                <img src="../images/earth-15-svgrepo-com.svg" class="sun" alt="SVG Icon">
+                <img src="../images/earth-15-svgrepo-com.svg" class="moon" alt="SVG Icon">
             </label>
 
             <button class="icon-btn logout-icon">
@@ -76,12 +79,14 @@
     </div>
 </div>
 
+<!-- Modal -->
+
      <div class="container">
       <!---->
         <div class="card-container">
               <div class="header">
               <div class="logo">
-                  <img src="images/orgs.png" alt="SDLO Logo">
+                  <img src="../images/orgs.png" alt="SDLO Logo">
               </div>
               <div class="header-text">
                   <h1>STUDENT DEVELOPMENT AND LEADERSHIP ORGANIZATION</h1>
@@ -136,5 +141,5 @@
           </div>          
 </body>
 
-<script src="js/aboutus.js"></script>
+<script src="../js/aboutus.js"></script>
 </html>

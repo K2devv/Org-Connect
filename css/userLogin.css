@@ -91,6 +91,7 @@
   .container button.hidden {
     background-color: transparent;
     border-color: #fff;
+    margin-top: 130px;
   }
   
   .container form {
@@ -281,6 +282,10 @@
   .toogle-left {
     transform: translateX(-200%);
     background: linear-gradient(to left, #9963da, #10194b);
+  }
+
+  .toogle-left h1{
+    margin-bottom: 10px;
   }
   
   .toogle-left button{
