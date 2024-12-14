@@ -1,26 +1,40 @@
+
+// Select modal and its elements
+const restrictionModal = document.getElementById("restrictionModal");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+// Select all restricted sidebar links
+const restrictedLinks = document.querySelectorAll(".sidebar .restricted");
+
+// Initially ensure modal is hidden
+restrictionModal.classList.remove("show");
+
+// Add click event listener for each restricted link
+restrictedLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent navigation to restricted page
+    restrictionModal.classList.add("show"); // Show the modal
+  });
+});
+
+// Close the modal when the close button is clicked
+modalCloseBtn.addEventListener("click", () => {
+  restrictionModal.classList.remove("show"); // Hide the modal
+});
+
+// Close the modal when clicking outside the modal content
+restrictionModal.addEventListener("click", (event) => {
+  if (event.target === restrictionModal) {
+    restrictionModal.classList.remove("show"); // Hide the modal
+  }
+});
+
+// dark mode
 document.addEventListener('DOMContentLoaded', () => {
-    // Get restricted links
-    const restrictedLinks = document.querySelectorAll('.restricted');
-    const modal = document.getElementById('restrictionModal');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const toggle = document.getElementById('darkmode-toggle');
 
-    // Show modal when a restricted link is clicked
-    restrictedLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent navigation
-            modal.style.display = 'flex';
-        });
-    });
-
-    // Close modal when the close button is clicked
-    modalCloseBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    // Close modal when clicking outside the modal content
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
+    toggle.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode');
     });
 });
+

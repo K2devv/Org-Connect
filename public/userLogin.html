@@ -26,20 +26,27 @@
   </head>
   
   <body>
-    <nav class="navbar">
+    
+  <nav class="navbar">
+
       <div class="nav-logo">
-        <img src="../images/logoV2.png" alt="ORGCONNECT">
+          <img src="../images/longlogo.png" alt="Org Connect Logo">
       </div>
+          
       <div class="nav-links">
-        <button class="icon-btn home-icon">
-            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-        </button>
-        <button class="icon-btn dark-icon">
-          <i class="fa-solid fa-moon" style="color: #ffffff;"></i>
-        </button>
+
+          <button class="icon-btn home-icon">
+              <i class="fa-solid fa-house" onclick="window.location.href='index.html'" style="color: #ffffff;"></i>
+          </button>
+  
+          <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
+          <label for="darkmode-toggle">
+          </label>
       </div>
-    </nav>
+  </nav>
    
+   <div class="whole-container">
+
     <div class="container" id="container">
       <div class="sign-up">
         <form>
@@ -111,6 +118,8 @@
         </div>
       </div>
     </div>
+
+   </div>
     <script src="../js/userLogin.js"></script>
   </body>
 </html>

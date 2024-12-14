@@ -74,3 +74,35 @@ searchInput.addEventListener('input', function(e) {
         noResultsMsg.style.display = 'none';
     }
 });
+
+// Select modal and its elements
+const restrictionModal = document.getElementById("restrictionModal");
+const modalCloseBtn = document.getElementById("modalCloseBtn");
+
+// Select all restricted sidebar links
+const restrictedLinks = document.querySelectorAll(".newsfeed, .user-restricted, .follow-restricted, .notif-restricted")
+
+
+
+// Initially ensure modal is hidden
+restrictionModal.classList.remove("show");
+
+// Add click event listener for each restricted link
+restrictedLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent navigation to restricted page
+    restrictionModal.classList.add("show"); // Show the modal
+  });
+});
+
+// Close the modal when the close button is clicked
+modalCloseBtn.addEventListener("click", () => {
+  restrictionModal.classList.remove("show"); // Hide the modal
+});
+
+// Close the modal when clicking outside the modal content
+restrictionModal.addEventListener("click", (event) => {
+  if (event.target === restrictionModal) {
+    restrictionModal.classList.remove("show"); // Hide the modal
+  }
+});

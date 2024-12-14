@@ -34,33 +34,26 @@
             <input type="text" placeholder="Search">
             <i class="fas fa-search"></i>
           </div>
-
-
         <div class="nav-buttons">
 
             <button class="btn list-orgs">
                 <i class="fa-solid fa-house"></i>LIST OF ORGS</button>
-            <button class="btn newsfeed" onclick="window.location.href='newsfeed.html'">
+            <button class="btn newsfeed"  id="newsfeed-restricted">
                 <i class="fa-solid fa-house"></i>NEWSFEED</button>
         </div>
-        
-            
-        </div>
+      </div>
         
         <div class="nav-links">
   
-            <button class="icon-btn home-icon">
-                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-            </button>
-            <button class="icon-btn user-icon">
+            <button class="icon-btn user-icon user-restricted">
                 <i class="fa-solid fa-user" style="color: #ffffff;"></i>
             </button>
-            <button class="icon-btn follow-icon">
+            <button class="icon-btn follow-icon follow-restricted">
                 <i class="fa-solid fa-heart" style="color: #ffffff;"></i>
             </button>
 
             <div class="notification-container">
-        <button class="icon-btn notif-icon" id="notif-btn">
+        <button class="icon-btn notif-icon notif-restricted" id="notif-btn">
             <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
         </button>
         <div class="notification-popup" id="notif-popup">
@@ -103,13 +96,11 @@
     </div>
 
             <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
-            <label for="darkmode-toggle">
-                <img src="../images/earth-15-svgrepo-com.svg" class="sun" alt="SVG Icon">
-                <img src="../images/earth-15-svgrepo-com.svg" class="moon" alt="SVG Icon">
+            <label for="darkmode-toggle" class="darkmode-label">
             </label>
             
             </button>
-            <button class="icon-btn logout-icon" onclick="togglePopup()">
+            <button class="icon-btn logout-icon" onclick="window.location.href='index.html'">
                 <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
             </button>
         </div>
@@ -125,11 +116,42 @@
             <img src="../images/orgs.png" alt="Placeholder Logo">
           </div>
           <div>
-            <div class="checkbox">
-              <input type="checkbox" class="checkbox-follow" id="org1">
-              <label for="org1">
-                  <i class="fa fa-heart fa-1x" aria-hidden="true" data-unchecked></i>
-                  <i class="fa fa-check-circle fa-1x" aria-hidden="true" data-checked></i>
+            <div class="checkbox-div">
+              <input type="checkbox" class="checkbox-input" id="org1">
+              <label for="org1" class="checkbox-label">
+                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+              </label>
+          </div>
+          
+          </div>
+  
+          <div class="content">
+            <div class="title">GAMING DEVELOPMENT AND LEADERSHIP ORGANIZATION (SDLO)</div>
+  
+            <div class="description">
+              is a group committed to fostering leadership....
+            </div>
+  
+            <a href="aboutus.html" class="button">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card-container">
+        <div class="shadow-box"></div>
+        <div class="card">
+          <img src="../images/bglogo.png" alt="Background Image">
+          <div class="logo-container">
+            <img src="../images/orgs.png" alt="Placeholder Logo">
+          </div>
+          <div>
+            <div class="checkbox-div">
+              <input type="checkbox" class="checkbox-input" id="org2">
+              <label for="org2" class="checkbox-label">
+                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
               </label>
           </div>
           
@@ -146,10 +168,146 @@
           </div>
         </div>
       </div>
-  </div>
+
+      <div class="card-container">
+        <div class="shadow-box"></div>
+        <div class="card">
+          <img src="../images/bglogo.png" alt="Background Image">
+          <div class="logo-container">
+            <img src="../images/orgs.png" alt="Placeholder Logo">
+          </div>
+          <div>
+            <div class="checkbox-div">
+              <input type="checkbox" class="checkbox-input" id="org3">
+              <label for="org3" class="checkbox-label">
+                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+              </label>
+          </div>
+          
+          </div>
+  
+          <div class="content">
+            <div class="title">STUDENT DEVELOPMENT AND LEADERSHIP ORGANIZATION (SDLO)</div>
+  
+            <div class="description">
+              is a group committed to fostering leadership....
+            </div>
+  
+            <a href="aboutus.html" class="button">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="shadow-box"></div>
+        <div class="card">
+          <img src="../images/bglogo.png" alt="Background Image">
+          <div class="logo-container">
+            <img src="../images/orgs.png" alt="Placeholder Logo">
+          </div>
+          <div>
+            <div class="checkbox-div">
+              <input type="checkbox" class="checkbox-input" id="org4">
+              <label for="org4" class="checkbox-label">
+                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+              </label>
+          </div>
+          
+          </div>
+  
+          <div class="content">
+            <div class="title">STUDENT DEVELOPMENT AND LEADERSHIP ORGANIZATION (SDLO)</div>
+  
+            <div class="description">
+              is a group committed to fostering leadership....
+            </div>
+  
+            <a href="aboutus.html" class="button">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="shadow-box"></div>
+        <div class="card">
+          <img src="../images/bglogo.png" alt="Background Image">
+          <div class="logo-container">
+            <img src="../images/orgs.png" alt="Placeholder Logo">
+          </div>
+          <div>
+            <div class="checkbox-div">
+              <input type="checkbox" class="checkbox-input" id="org5">
+              <label for="org5" class="checkbox-label">
+                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+              </label>
+          </div>
+          
+          </div>
+  
+          <div class="content">
+            <div class="title">STUDENT DEVELOPMENT AND LEADERSHIP ORGANIZATION (SDLO)</div>
+  
+            <div class="description">
+              is a group committed to fostering leadership....
+            </div>
+  
+            <a href="aboutusV2.html" class="button">SEE MORE</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="shadow-box"></div>
+        <div class="card">
+          <img src="../images/bglogo.png" alt="Background Image">
+          <div class="logo-container">
+            <img src="../images/orgs.png" alt="Placeholder Logo">
+          </div>
+          <div>
+            <div class="checkbox-div">
+              <input type="checkbox" class="checkbox-input" id="org6">
+              <label for="org6" class="checkbox-label">
+                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+              </label>
+          </div>
+          
+          </div>
+  
+          <div class="content">
+            <div class="title">STUDENT DEVELOPMENT AND LEADERSHIP ORGANIZATION (SDLO)</div>
+  
+            <div class="description">
+              is a group committed to fostering leadership....
+            </div>
+  
+            <a href="aboutus.html" class="button">SEE MORE</a>
+          </div>
+        </div>
+      </div>
       
+    </div>
+
+    <!-- Modal -->
+
+    <div class="overlay" id="restrictionModal">
+      <div class="guestlock-container">
+      <div class="guestlock-icon">
+          <img src="../images/guestlock.png" alt="Lock Icon">
+      </div>
+      <div class="guestlock-content">
+          <h1>SIGN IN REQUIRED</h1>
+          <p>Sign in to view full access to OrgConnect. Where you can explore detailed content, connect with organizations, and discover events on your campus.</p>
+          <button id="modalCloseBtn" class="btn">LOG IN</button>
+      </div>
+      </div>
+  </div>
+
 </body>
 
-<script src="js/listOrgs.js"></script>
+<script src="../js/listOrgs.js"></script>
 
 </html>
