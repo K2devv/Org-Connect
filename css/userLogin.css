@@ -358,7 +358,7 @@
   }
   
   .icon-btn {
-    background-color: #682fff;
+    background-color: #f65555;
     border: none;
     padding: 10px;
     border-radius: 50%;
@@ -367,12 +367,7 @@
     margin-top: 2px;
   }
   
-  .logout-icon {
-    background-color: #f65555;
-    position: absolute;
-    left: 300px;
-    
-  }
+
   
   .nav-links .icon-btn:hover {
     background-color: #ffbd59;

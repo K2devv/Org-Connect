@@ -107,38 +107,58 @@
     </nav>
 
     <div class="flex-container">
+      <?php
+      // Include database connection file
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "orgconnect";
+  
+      $conn = new mysqli($servername, $username, $password, $dbname);
+  
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+  
+      $sql = "SELECT * FROM organization";
+      $result = $conn->query($sql);
+  
+      if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+              echo '<div class="card-container">
+                      <div class="shadow-box"></div>
+                      <div class="card">
+                          <img src="images/bglogo.png" alt="Background Image">
+                          <div class="logo-container">
+                              <img src="' . $row["logo"] . '" alt="">
+                          </div>
 
-
-      <div class="card-container">
-        <div class="shadow-box"></div>
-        <div class="card">
-          <img src="../images/bglogo.png" alt="Background Image">
-          <div class="logo-container">
-            <img src="../images/orgs.png" alt="Placeholder Logo">
-          </div>
-          <div>
-            <div class="checkbox-div">
-              <input type="checkbox" class="checkbox-input" id="org1">
-              <label for="org1" class="checkbox-label">
-                  <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
-                  <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
-              </label>
-            </div>
+                            <div>
+                                <div class="checkbox-div">
+                                    <input type="checkbox" class="checkbox-input" id="org1">
+                                    <label for="org1" class="checkbox-label">
+                                        <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                                        <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+                                    </label>
+                                </div>
           
-          </div>
+                            </div>
+
+                          <div class="content">
+                              <div class="title">' . $row["org_name"] . '</div>
+                              <div class="description">' . $row["short_description"] . '</div>
+                              <a href="aboutusV2.html" class="button">SEE MORE</a>
+                          </div>
+                      </div>
+                  </div>';
+          }
+      } else {
+          echo '<p>No organizations available.</p>';
+      }
   
-          <div class="content">
-            <div class="title">GAMING DEVELOPMENT AND LEADERSHIP ORGANIZATION (SDLO)</div>
-  
-            <div class="description">
-              is a group committed to fostering leadership....
-            </div>
-  
-            <a href="aboutus.html" class="button">SEE MORE</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      $conn->close();
+      ?>
+  </div>
 
     <!-- Modal -->
 

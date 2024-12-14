@@ -24,23 +24,30 @@
   <link href="https://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
   
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <div class="nav-logo">
-          <img src="../images/logoV2.png" alt="ORGCONNECT">
-        </div>
-        <div class="nav-links">
-          <button class="icon-btn home-icon">
-              <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-          </button>
-          <button class="icon-btn dark-icon">
-            <i class="fa-solid fa-moon" style="color: #ffffff;"></i>
-          </button>
-        </div>
-      </nav>
+  <nav class="navbar">
 
-    <main>
+    <div class="nav-logo">
+        <img src="../images/longlogo.png" alt="Org Connect Logo">
+    </div>
+        
+    <div class="nav-links">
+
+      <button class="icon-btn logout-icon" onclick="window.location.href='index.html'">
+        <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
+      </button>
+
+        <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
+        <label for="darkmode-toggle" class="darkmode-label">
+        </label>
+    </div>
+</nav>
+
+  <div class="whole-container">
+
+<main>
     <div class="forgot-password-container">
         <div class="icon-circle">
             <img src="../images/fp.png" alt="Forgot Password">
@@ -49,22 +56,18 @@
         <p>Click the button below to reset your password and restore access to your account.</p>
         <div class="form-container">
           
-          <form method="POST" action="..send_verification.php"> 
+          <form method="POST" action="send_verification.php"> 
               <input type="text" placeholder="STUDENT ID" id="student_id" name="student_id" required>
-              <button type="submit" class="send-code-btn" id="send-code-btn">SEND CODE</button>  
-              <p class="error-message" style="color: red; font-size: 14px;"></p>
-          <p class="success-message" style="color: green; font-size: 14px;"></p>           
+              <button type="submit" class="send-code-btn" id="send-code-btn">SEND CODE</button>             
           </form>
-          
-          
         </div>
+        <p class="error-message" style="color: red; font-size: 14px;"></p>
+        <p class="success-message" style="color: green; font-size: 14px;"></p>
     </div>
-
-
-    
-  
 </main>
 
-    <script src="../js/forgotPass.js"></script>
+</div> 
 </body>
+
+    <script src="../js/forgotPass.js"></script>
 </html>

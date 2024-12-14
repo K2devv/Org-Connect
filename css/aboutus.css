@@ -550,16 +550,6 @@ padding-left: 15px;
 
 /*dark mode*/
 
-.background {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: -1;
-  transition: background-image 0.3s ease-in-out;
-  background-size: cover;
-  background-position: center;
-}
-
 body.dark-mode  {
   background-image: url('../images/AUdark.png'); /* Update this path with the actual image path */
   background-size: cover;

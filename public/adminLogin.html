@@ -25,88 +25,98 @@
   </head>
   
   <body>
-    <nav class="navbar">
-      <div class="nav-logo">
-        <img src="../images/logoV2.png" alt="ORGCONNECT">
-      </div>
-      <div class="nav-links">
-        <button class="icon-btn home-icon">
-            <i class="fa-solid fa-house" style="color: #ffffff;"></i>
-        </button>
-        <button class="icon-btn dark-icon">
-          <i class="fa-solid fa-moon" style="color: #ffffff;"></i>
-        </button>
-      </div>
-    </nav>
+    <body>
+    
+      <nav class="navbar">
+    
+          <div class="nav-logo">
+              <img src="../images/longlogo.png" alt="Org Connect Logo">
+          </div>
+              
+          <div class="nav-links">
+    
+            <button class="icon-btn logout-icon" onclick="window.location.href='index.html'">
+              <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
+            </button>
+      
+              <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
+              <label for="darkmode-toggle">
+              </label>
+          </div>
+      </nav>
    
-    <div class="container" id="container">
-      <div class="sign-up">
-        <form>
-          <h1>SIGN UP AS ORGANIZATION ADMIN</h1>
-          
-          <div class="input-container-signUp">
-              <input type="text" placeholder="Org Name" class="pHolder"/>
-              <i class="input-icon-signUp fa-regular fa-user"></i>
-          </div>
-          
-          <div class="input-container-signUp">
-              <input type="email" placeholder="Org Email" class="pHolder"/>
-              <i class="input-icon-signUp fa-regular fa-envelope"></i>
-          </div>
-          
-      
-          
-          <div class="input-container-signUp">
-              <input type="password" placeholder="Password" class="pHolder"/>
-              <i class="input-icon-signUp fa-regular fa-eye"></i>
-          </div>
-          
-          <div class="input-container-signUp">
-              <input type="password" placeholder="Re-enter Password" class="pHolder"/>
-              <i class="input-icon-signUp fa-regular fa-eye"></i>
-          </div>
-          
-          <button>Sign Up As Org Admin</button>
-        </form>
-      </div>
-      
-      
-        <div class="sign-in" id="sign-in">
+    <div class="whole-container">
+
+      <div class="container" id="container">
+        <div class="sign-up">
           <form>
-            <h1>LOGIN IN AS ORGANIZATION ADMIN</h1>
+            <h1>SIGN UP AS ORGANIZATION ADMIN</h1>
             
-            <div class="input-container-logIn">
+            <div class="input-container-signUp">
+                <input type="text" placeholder="Org Name" class="pHolder"/>
+                <i class="input-icon-signUp fa-regular fa-user"></i>
+            </div>
+            
+            <div class="input-container-signUp">
                 <input type="email" placeholder="Org Email" class="pHolder"/>
-                <i class="input-icon-logIn fa-regular fa-id-card"></i>
+                <i class="input-icon-signUp fa-regular fa-envelope"></i>
             </div>
             
-            <div class="input-container-logIn">
+        
+            
+            <div class="input-container-signUp">
                 <input type="password" placeholder="Password" class="pHolder"/>
-                <i class="input-icon-logIn fa-regular fa-eye"></i>
+                <i class="input-icon-signUp fa-regular fa-eye"></i>
             </div>
             
-            <a class="forgot-password" href="forgotpw.html">Forgot password?</a>
-            <button>LOG IN</button>
+            <div class="input-container-signUp">
+                <input type="password" placeholder="Re-enter Password" class="pHolder"/>
+                <i class="input-icon-signUp fa-regular fa-eye"></i>
+            </div>
+            
+            <button>Sign Up As Org Admin</button>
           </form>
         </div>
-      
-      
-
-      <div class="toogle-container">
-        <div class="toogle">
-          <div class="toogle-panel toogle-left">
-            <h1>Welcome back to ORGCONNECT!</h1>
-            <p>We've missed you! Log in now to manage your organization, stay connected with the university community, and ensure you never miss an important event or opportunity.</p>
-            <button class="hidden" id="login">LOG IN AS ORG ADMIN</button>
+        
+        
+          <div class="sign-in" id="sign-in">
+            <form>
+              <h1>LOGIN IN AS ORGANIZATION ADMIN</h1>
+              
+              <div class="input-container-logIn">
+                  <input type="email" placeholder="Org Email" class="pHolder"/>
+                  <i class="input-icon-logIn fa-regular fa-id-card"></i>
+              </div>
+              
+              <div class="input-container-logIn">
+                  <input type="password" placeholder="Password" class="pHolder"/>
+                  <i class="input-icon-logIn fa-regular fa-eye"></i>
+              </div>
+              
+              <a class="forgot-password" href="forgotpw.html">Forgot password?</a>
+              <button>LOG IN</button>
+            </form>
           </div>
-          <div class="toogle-panel toogle-right">
-            <h1>Welcome to ORGCONNECT!</h1>
-            <p>Sign up to become part of a community that bridges students and organizations. Create your admin account and start managing your campus organization with ease.
-            </p>
-            <button class="hidden" id="register">SIGN UP AS ORG ADMIN</button>
+        
+        
+  
+        <div class="toogle-container">
+          <div class="toogle">
+            <div class="toogle-panel toogle-left">
+              <h1>Welcome back to ORGCONNECT!</h1>
+              <p>We've missed you! Log in now to manage your organization, stay connected with the university community, and ensure you never miss an important event or opportunity.</p>
+              <button class="hidden" id="login">LOG IN AS ORG ADMIN</button>
+            </div>
+            <div class="toogle-panel toogle-right">
+              <h1>Welcome to ORGCONNECT!</h1>
+              <p>Sign up to become part of a community that bridges students and organizations. Create your admin account and start managing your campus organization with ease.
+              </p>
+              <button class="hidden" id="register">SIGN UP AS ORG ADMIN</button>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
     <script src="../js/adminLogin.js"></script>
   </body>

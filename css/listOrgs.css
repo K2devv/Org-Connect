@@ -604,3 +604,11 @@ top: 12px;
   }
 }
 
+/*dark mode*/
+
+body.dark-mode  {
+  background-image: url('../images/AUdark.png'); /* Update this path with the actual image path */
+  background-size: cover;
+  transition: background-image 0.3s ease-in-out;
+  background-position: center;
+}
