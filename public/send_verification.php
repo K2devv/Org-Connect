@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$conn = new mysqli('localhost', 'root', '', 'emailverifV2');
+$conn = new mysqli('localhost', 'root', '', 'emailverif');
 if ($conn->connect_error) {
     die(json_encode(['status' => 'error', 'message' => 'Database connection failed.']));
 }

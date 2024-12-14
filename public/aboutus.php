@@ -1,3 +1,39 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "orgconnect";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch the org_id from the URL
+if (isset($_GET['org_id']) && is_numeric($_GET['org_id'])) {
+    $org_id = intval($_GET['org_id']); // Sanitize input
+
+    // Fetch organization details
+    $stmt = $conn->prepare("SELECT * FROM organization WHERE org_id = ?");
+    $stmt->bind_param("i", $org_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $org = $result->fetch_assoc(); // Fetch the organization data
+    } else {
+        echo "<h1>Organization not found.</h1>";
+        exit;
+    }
+} else {
+    echo "<h1>Invalid organization ID.</h1>";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +81,10 @@
                 <i class="fa-solid fa-heart" style="color: #ffffff;"></i>
             </button>
             <div class="notification-container">
+                <button class="icon-btn notif-icon" id="notif-btn">
+                    <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
+                </button>
+                <div class="notification-container">
                 <button class="icon-btn notif-icon" id="notif-btn">
                     <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
                 </button>
@@ -124,11 +164,11 @@
         <div class="card-container">
               <div class="header">
               <div class="logo">
-                  <img src="../images/orgs.png" alt="SDLO Logo">
+              <img src="<?php echo htmlspecialchars($org['logo']); ?>" alt="Logo of <?php echo htmlspecialchars($org['org_name']); ?>">
               </div>
               <div class="header-text">
-                  <h1 id="text-content">STUDENT DEVELOPMENT AND LEADERSHIP ORGANIZATION</h1>
-                  <h2 id="text-content">( S D L O )</h2>
+                <h1><?php echo htmlspecialchars($org['org_name']); ?></h1>
+                <h2>(<?php echo htmlspecialchars($org['org_acronym']); ?>)</h2>
                   
               </div>
 
@@ -147,21 +187,9 @@
               <div class="description">
                 <h3>ORG DESCRIPTION</h3>
                 <p id="text-content">
-                    The Student Development and Leadership Organization (SDLO) is a dynamic and inclusive 
-                    student-driven group dedicated to empowering individuals through the development of 
-                    leadership skills, personal growth, and active community involvement. SDLO offers a 
-                    supportive environment for students to explore and enhance their leadership potential, 
-                    providing numerous opportunities for engagement in extracurricular activities, 
-                    workshops, and projects that foster both professional and personal growth.
+                <?php echo nl2br(htmlspecialchars($org['long_description'])); ?>
                 </p>
-                <p id="text-content">
-                    By encouraging participation in a wide range of events, the organization helps students 
-                    cultivate critical thinking, teamwork, and communication skills while also promoting a 
-                    strong sense of social responsibility. Through collaboration, networking, and hands-on 
-                    initiatives, SDLO serves as a platform for students to actively shape the future, 
-                    advocate for positive change, and become proactive leaders who drive social and 
-                    community-oriented initiatives both on and off-campus.
-                </p>
+                
             </div>
             </div>
             <!---->
@@ -170,22 +198,22 @@
                 <p id="text-content">VIA EMAIL</p>
                 <h3 id="text-content">
                     <i class="fa fa-envelope" aria-hidden="true"></i>
-                    sldo@university.edu
+                    <?php echo htmlspecialchars($org['org_email']); ?>
                 </h3>
                 <p id="text-content">VIA FACEBOOK</p>
                 <h3 id="text-content">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
-                    www.facebook.com/SLDO.University
+                    <?php echo htmlspecialchars($org['org_email']); ?>
                 </h3>
                 <h1 id="text-content" class="visit">or<br> 
                     Visit Us at the Office</h1>
-                    <p id="text-content">SLDO - Student Leadership and Development Office</p>
+                    <p id="text-content"><?php echo htmlspecialchars($org['org_email']); ?></p>
                     <H3 id="text-content">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        Building A, Room 102</H3>
+                        <?php echo htmlspecialchars($org['org_email']); ?></H3>
                     <H3 id="text-content">
                         <i class="fa fa-calendar" aria-hidden="true"></i>
-                        Monday - Friday, 9 AM - 5 PM</H3>
+                        <?php echo htmlspecialchars($org['org_email']); ?></H3>
                     <p id="text-content">We'd love to help you get involved and take your leadership skills to the next level! </p>
             </div>
             <!---->

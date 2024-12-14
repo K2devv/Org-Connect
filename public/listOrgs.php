@@ -1,3 +1,15 @@
+
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: userLogin.html');
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,112 +65,107 @@
             </button>
 
             <div class="notification-container">
-        <button class="icon-btn notif-icon notif-restricted" id="notif-btn">
-            <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
-        </button>
-        <div class="notification-popup" id="notif-popup">
-            <div class="popup-header">
-              <i class="fa fa-calendar"></i>
-                <h3>WEEKLY EVENTS</h3>
+                <button class="icon-btn notif-icon" id="notif-btn">
+                    <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
+                </button>
+                <div class="notification-popup" id="notif-popup">
+                    <div class="popup-header">
+                        <h3>NOTIFICATIONS</h3>
+                    </div>
+                    <div class="popup-content">
+        
+                        <div class="notif-item" onclick="window.location.href='aboutusV2.html'">
+                            <span class="date">NOV 11</span>
+                            <span class="event">Tech Innovators Conference 2024</span>
+                            <div class="gradient-line"></div>
+                        </div>
+                        <div class="notif-item">
+                            <span class="date">NOV 12</span>
+                            <span class="event">Sustainability Workshop for Students</span>
+                            <div class="gradient-line"></div>
+                        </div>
+                        <div class="notif-item">
+                            <span class="date">NOV 13</span>
+                            <span class="event">Leadership Development Forum</span>
+                            <div class="gradient-line"></div>
+                        </div>
+        
+                        <div class="notif-item">
+                          <span class="date">NOV 14</span>
+                          <span class="event">Leadership Development Forum</span>
+                          <div class="gradient-line"></div>
+                        </div>
+        
+                      <div class="notif-item">
+                        <span class="date">NOV 15</span>
+                        <span class="event">Leadership Development Forum</span>
+                        <div class="gradient-line"></div>
+                      </div>
+        
+                    </div>
+                </div>
             </div>
-            <div class="popup-content">
-
-                <div class="notif-item" onclick="window.location.href='aboutusV2.html'">
-                    <span class="date">NOV 11</span>
-                    <span class="event">Tech Innovators Conference 2024</span>
-                    <div class="gradient-line"></div>
-                </div>
-                <div class="notif-item">
-                    <span class="date">NOV 12</span>
-                    <span class="event">Sustainability Workshop for Students</span>
-                    <div class="gradient-line"></div>
-                </div>
-                <div class="notif-item">
-                    <span class="date">NOV 13</span>
-                    <span class="event">Leadership Development Forum</span>
-                    <div class="gradient-line"></div>
-                </div>
-
-                <div class="notif-item">
-                  <span class="date">NOV 14</span>
-                  <span class="event">Leadership Development Forum</span>
-                  <div class="gradient-line"></div>
-                </div>
-
-              <div class="notif-item">
-                <span class="date">NOV 15</span>
-                <span class="event">Leadership Development Forum</span>
-                <div class="gradient-line"></div>
-              </div>
-
-            </div>
-        </div>
-    </div>
 
             <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
             <label for="darkmode-toggle" class="darkmode-label">
             </label>
             
             </button>
-            <button class="icon-btn logout-icon" onclick="window.location.href='index.html'">
+            <button class="icon-btn logout-icon" id="logoutButton" onclick="logout()">
                 <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
             </button>
         </div>
     </nav>
 
     <div class="flex-container">
-      <?php
-      // Include database connection file
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "orgconnect";
-  
-      $conn = new mysqli($servername, $username, $password, $dbname);
-  
-      if ($conn->connect_error) {
-          die("Connection failed: " . $conn->connect_error);
-      }
-  
-      $sql = "SELECT * FROM organization";
-      $result = $conn->query($sql);
-  
-      if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
-              echo '<div class="card-container">
-                      <div class="shadow-box"></div>
-                      <div class="card">
-                          <img src="images/bglogo.png" alt="Background Image">
-                          <div class="logo-container">
-                              <img src="' . $row["logo"] . '" alt="">
-                          </div>
+        <?php
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "orgconnect";
 
-                            <div>
-                                <div class="checkbox-div">
-                                    <input type="checkbox" class="checkbox-input" id="org1">
-                                    <label for="org1" class="checkbox-label">
-                                        <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
-                                        <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
-                                    </label>
-                                </div>
-          
-                            </div>
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
-                          <div class="content">
-                              <div class="title">' . $row["org_name"] . '</div>
-                              <div class="description">' . $row["short_description"] . '</div>
-                              <a href="aboutusV2.html" class="button">SEE MORE</a>
-                          </div>
-                      </div>
-                  </div>';
-          }
-      } else {
-          echo '<p>No organizations available.</p>';
-      }
-  
-      $conn->close();
-      ?>
-  </div>
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM organization";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '
+                <div class="card-container">
+                    <div class="shadow-box"></div>
+                    <div class="card">
+                        <img src="../images/bglogo.png" alt="Background Image">
+                        <div class="logo-container">
+                            <img src="' . htmlspecialchars($row["logo"]) . '" >
+                        </div>
+                        <div class="checkbox-div">
+                            <input type="checkbox" class="checkbox-input" id="org' . $row["org_id"] . '">
+                            <label for="org' . $row["org_id"] . '" class="checkbox-label">
+                                <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                                <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+                            </label>
+                        </div>
+                        <div class="content">
+                            <div class="title">' . htmlspecialchars($row["org_name"]) . '</div>
+                            <div class="description">' . htmlspecialchars($row["short_description"]) . '</div>
+                            <a href="aboutus.php?org_id=' . $row["org_id"] . '" class="button">SEE MORE</a>
+                        </div>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo '<p>No organizations available.</p>';
+        }
+
+        $conn->close();
+        ?>
+    </div>
 
     <!-- Modal -->
 

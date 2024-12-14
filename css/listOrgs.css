@@ -430,83 +430,93 @@ background-color: #ffbd59; /* Yellow color */
 
 /* Notification Popup Styles */
 .notification-popup {
-position: fixed;
-top: 80px; /* Adjust this value to position the popup */
-right: 20px;
-width: 300px;
-background: white;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-border-radius: 10px;
-overflow: hidden;
-opacity: 0;
-visibility: hidden;
-transform: translateX(100%);
-transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-z-index: 1000;
-}
+  position: fixed;
+  top: 80px; /* Adjust this value to position the popup */
+  right: 20px;
+  width: 300px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+  }
+  
+  /* Show the popup when active */
+  .notification-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  }
+  
+  /* Header Styles */
+  .popup-header {
+  background: #682fff;
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  }
+  
+  /* Content and Notification Styles */
+  .popup-content {
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  }
+  
+  .notif-item {
+  background: linear-gradient(90deg,#f1effc,#cbd1f3,#ceb7d0);
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  }
+  
+  .notif-item:hover {
+  background-color: #f1f1f1;
+  }
+  
+  .notif-item .date {
+  color: #6a1b9a;
+  font-weight: bold;
+  font-size: 14px;
+  }
+  
+  .notif-item .event {
+  color: #555;
+  font-size: 14px;
+  }
+  
+  .gradient-line {
+  width: 80%;
+  max-width: 250px;
+  height: 8px;
+  background: linear-gradient(90deg, #832eff, #fe4ff2);
+  margin: 0 auto;
+  border-radius: 50px;
+  position: relative;
+  top: 12px;
+  
+  }
 
-/* Show the popup when active */
-.notification-popup.show {
-opacity: 1;
-visibility: visible;
-transform: translateX(0);
-}
+  body.dark-mode .notification-popup{
+    background:#25123f;
+  }
 
-/* Header Styles */
-.popup-header {
-background: #682fff;
-color: white;
-padding: 15px;
-font-size: 16px;
-font-weight: bold;
-text-align: center;
-}
+  body.dark-mode .popup-header{
+    color: white;
+  }
 
-/* Content and Notification Styles */
-.popup-content {
-padding: 10px;
-max-height: 300px;
-overflow-y: auto;
-}
-
-.notif-item {
-background: linear-gradient(90deg,#f1effc,#cbd1f3,#ceb7d0);
-padding: 10px;
-border-bottom: 1px solid #f0f0f0;
-display: flex;
-flex-direction: column;
-gap: 5px;
-cursor: pointer;
-margin-bottom: 10px;
-border-radius: 15px;
-}
-
-.notif-item:hover {
-background-color: #f1f1f1;
-}
-
-.notif-item .date {
-color: #6a1b9a;
-font-weight: bold;
-font-size: 14px;
-}
-
-.notif-item .event {
-color: #555;
-font-size: 14px;
-}
-
-.gradient-line {
-width: 80%;
-max-width: 250px;
-height: 8px;
-background: linear-gradient(90deg, #832eff, #fe4ff2);
-margin: 0 auto;
-border-radius: 50px;
-position: relative;
-top: 12px;
-
-}
+  
 
 /* Modal Styles */
 .overlay {
@@ -612,3 +622,31 @@ body.dark-mode  {
   transition: background-image 0.3s ease-in-out;
   background-position: center;
 }
+
+body.dark-mode .card{
+  background-color: #28133f;
+}
+
+body.dark-mode .logo-container{
+border: 15px solid #4b3164;
+}
+
+body.dark-mode .title{
+  color:#fed4e7;
+}
+body.dark-mode .description{
+color: white;
+}
+
+body.dark-mode .nav-buttons  .newsfeed{
+color: white;
+background-color: #28133f;
+border: 5px solid #a159ff;
+}
+
+body.dark-mode .guestlock-content{
+  background: linear-gradient(#0d0423, #4b3161, #301871);
+}
+
+body.dark-mode .guestlock-content h1{
+  color: #f4bbf2;}
