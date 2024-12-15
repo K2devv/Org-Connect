@@ -127,7 +127,7 @@ if (isset($_GET['org_id']) && is_numeric($_GET['org_id'])) {
             <label for="darkmode-toggle" class="darkmode-label">
             </label>
     
-            <button class="icon-btn logout-icon">
+            <button class="icon-btn logout-icon" onclick="logout()">
                 <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
             </button>
         </div>

@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$conn = new mysqli('localhost', 'root', '', 'emailverif');
+$conn = new mysqli('localhost', 'root', '', 'orgconnect');
 if ($conn->connect_error) {
     die(json_encode(['status' => 'error', 'message' => 'Database connection failed.']));
 }
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['student_id']) && !empty($_POST['student_id'])) {
         $student_id = $_POST['student_id'];
 
-        $stmt = $conn->prepare("SELECT email FROM students WHERE student_id = ?");
+        $stmt = $conn->prepare("SELECT email FROM students WHERE StudentID = ?");
         if (!$stmt) {
             die(json_encode(['status' => 'error', 'message' => 'Query preparation failed.']));
         }
