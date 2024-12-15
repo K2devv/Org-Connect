@@ -136,25 +136,12 @@ if (isset($_GET['org_id']) && is_numeric($_GET['org_id'])) {
     <div class="sidebar">
     <a class="a" href="aboutusV2.html">About Us</a>
     <a class="a restricted" href="officers.html">Officers</a>
-    <a class="a restricted" href="committee.html">Comittee</a>
+    <a class="a restricted" href="committeelist.html">Comittee</a>
     <a class="a restricted" href="handledevents.html">Handled Events</a>
-    <a class="a restricted" href="announcements.html">Announcements</a>
+    <a class="a restricted" href="announcementslist.html">Announcements</a>
     </div>
 
-    <!-- Modal -->
-
-<div class="overlay" id="restrictionModal">
-    <div class="guestlock-container">
-    <div class="guestlock-icon">
-        <img src="../images/guestlock.png" alt="Lock Icon">
-    </div>
-    <div class="guestlock-content">
-        <h1>SIGN IN REQUIRED</h1>
-        <p>Sign in to view full access to OrgConnect. Where you can explore detailed content, connect with organizations, and discover events on your campus.</p>
-        <button id="modalCloseBtn" class="btn">LOG IN</button>
-    </div>
-    </div>
-</div>
+ 
 
      <div class="container">
       <!---->

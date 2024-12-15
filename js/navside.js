@@ -28,8 +28,3 @@ document.addEventListener('DOMContentLoaded', function() {
         e.stopPropagation();
     });
 });
-
-function logout() {
-    // Redirect to the logout.php script to destroy the session and logout the user
-    window.location.href = "index.html";
-}

@@ -40,7 +40,7 @@
         </button>
   
           <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
-          <label for="darkmode-toggle">
+          <label for="darkmode-toggle" class="darkmode-label">
           </label>
       </div>
   </nav>
@@ -83,7 +83,7 @@
       
       
         <div class="sign-in" id="sign-in">
-          <form id="loginForm" action="login.php" method="POST">
+          <form id="loginForm" action="login.php" method="POST" onsubmit="return validateLogin()">
             <h1>SIGN IN TO YOUR ACCOUNT</h1>
             
             <div class="input-container-logIn">
@@ -98,6 +98,8 @@
             
             <a class="forgot-password" href="forgotPass.html">Forgot password?</a>
             <button type="submit">LOG IN</button>
+
+            <p id="error" style="color: red;"></p>
           </form>
         </div>
       
@@ -121,13 +123,11 @@
 
    </div>
 
-<!-- For showing success or error message -->
-<div id="messageContainer" style="display: none; padding: 10px; margin-top: 20px; background-color: #d4edda; color: #155724; border-radius: 5px;">
-  <p id="message"></p>
-</div>
 
 
 
-   <script src="../js/userLogin.js"></script>
+   
   </body>
+
+  <script src="../js/userLogin.js"></script>
 </html>

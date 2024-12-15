@@ -1,11 +1,13 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="../css/committee.css">
-    
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/listOrgGuest.css">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -23,34 +25,43 @@
   <link href="https://fonts.cdnfonts.com/css/proxima-nova-condensed" rel="stylesheet">
   <link href="https://fonts.cdnfonts.com/css/dm-sans" rel="stylesheet">
 </head>
-
 <body>
 
+  
     <nav class="navbar">
-
-        <div class="nav-logo">
+        <div class="logo">
             <img src="../images/longlogo.png" alt="Org Connect Logo">
         </div>
-            
+
+          <div class="search-container">
+            <input type="text" placeholder="Search">
+            <i class="fas fa-search"></i>
+          </div>
+        <div class="nav-buttons">
+
+            <button class="btn list-orgs">
+                <i class="fa-solid fa-house"></i>LIST OF ORGS</button>
+            <button class="btn newsfeed"  id="newsfeed-restricted" onclick="window.location.href='newsfeed.html'">
+                <i class="fa-solid fa-house"></i>NEWSFEED</button>
+        </div>
+      </div>
+        
         <div class="nav-links">
-    
-            <button class="icon-btn home-icon">
-                <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+  
+            <button class="icon-btn user-icon user-restricted">
+                <i class="fa-solid fa-user" style="color: #ffffff;" onclick="window.location.href='profilepage.html'"></i>
             </button>
-            <button class="icon-btn user-icon">
-                <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+            <button class="icon-btn follow-icon follow-restricted">
+                <i class="fa-solid fa-heart" style="color: #ffffff;" onclick="window.location.href='followedOrgs.html'"></i>
             </button>
-            <button class="icon-btn follow-icon">
-                <i class="fa-solid fa-heart" style="color: #ffffff;"></i>
-            </button>
+
             <div class="notification-container">
                 <button class="icon-btn notif-icon" id="notif-btn">
                     <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
                 </button>
                 <div class="notification-popup" id="notif-popup">
                     <div class="popup-header">
-                      <i class="fa fa-calendar"></i>
-                        <h3>WEEKLY EVENTS</h3>
+                        <h3>NOTIFICATIONS</h3>
                     </div>
                     <div class="popup-content">
         
@@ -85,61 +96,71 @@
                     </div>
                 </div>
             </div>
-    
+
             <input type="checkbox" class="icon-btn darkmode-toggle"  id="darkmode-toggle">
             <label for="darkmode-toggle" class="darkmode-label">
             </label>
-    
-            <button class="icon-btn logout-icon" onclick="logout()">
+            
+            </button>
+            <button class="icon-btn logout-icon" id="logoutButton" onclick="logout()">
                 <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
             </button>
         </div>
     </nav>
-    
-    <div class="sidebar">
-    <a class="a" href="aboutusUser.php">About Us</a>
-    <a class="a restricted" href="officers.html">Officers</a>
-    <a class="a restricted" href="committeelist.html">Comittee</a>
-    <a class="a restricted" href="handledevents.html">Handled Events</a>
-    <a class="a restricted" href="announcementlist.html">Announcements</a>
+
+    <div class="flex-container">
+        <?php
+        // Database connection
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "orgconnect";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT * FROM organization";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                echo '
+                <div class="card-container">
+                    <div class="shadow-box"></div>
+                    <div class="card">
+                        <img src="../images/bglogo.png" alt="Background Image">
+                        <div class="logo-container">
+                            <img src="../images/orgs.png" >
+                        </div>
+                        <div class="checkbox-div">
+                            <input type="checkbox" class="checkbox-input" id="org' . $row["org_id"] . '">
+                            <label for="org' . $row["org_id"] . '" class="checkbox-label">
+                                <i class="fa fa-heart fa-1x" id="heart" aria-hidden="true" data-unchecked></i>
+                                <i class="fa fa-check-circle fa-1x" id="check" aria-hidden="true" data-checked></i>
+                            </label>
+                        </div>
+                        <div class="content">
+                            <div class="title">' . htmlspecialchars($row["org_name"]) . '</div>
+                            <div class="description">' . htmlspecialchars($row["short_description"]) . '</div>
+                            <a href="aboutusUser.php?org_id=' . $row["org_id"] . '" class="button">SEE MORE</a>
+                        </div>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo '<p>No organizations available.</p>';
+        }
+
+        $conn->close();
+        ?>
     </div>
-    
-    <!-- Start of Body -->
 
-
-    <div class="comtext">
-        <h1 class="comtxt">COMMITTEE</h1>
-    </div>
-
-
-    <div class="container1">
-        <div class="header">
-            <div class="header-text">
-                <h1 id="committee-name">TECHNOLOGY AND INNOVATION COMMITTEE</h1>
-    
-            </div>
-        </div>
-    
-        <div class="bigger-container">
-            <h1> committee description </h1>
-            <p>The Technology and Innovation Committee is dedicated to transforming our school into a cutting-edge, digitally-savvy community where technology enhances learning, fosters creativity, and streamlines daily operations. 
-                This committee is committed to supporting students, teachers, and staff in adopting innovative tools that promote digital literacy and make learning more engaging and accessible.
-                By partnering with tech experts, organizing hands-on workshops, and providing resources for digital learning, the Technology and Innovation Committee is here to empower our school community to thrive in a rapidly advancing world.
-            </p>
-            <div class="gradient-line"></div>
-        </div>
-        
-    
-        <div class="small-container">
-            <h1 class="register">How to register?</h1>
-            <p>Visit the SDLO office or sign up online at SLDOrg.com/registration.</p>
-            <p>Don't miss this chance to enhance your leadership and tech skills! For more information, 
-                contact SDLO at SDLO@gmail.com or visit the student activities office.</p>
-    
-        </div>
-    </div>
 
 </body>
 
-<script src="../js/committee.js"></script>
+<script src="../js/listOrgGuest.js"></script>
+
 </html>

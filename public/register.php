@@ -43,10 +43,12 @@ try {
                 ':password' => $hashedPassword
             ]);
 
-            echo json_encode(["status" => "success", "message" => "Account created successfully."]);
+            echo "<script>alert('Account created successfully. Proceed to login.');</script>";
+            echo "<script>window.location.href = 'userLogin.html';</script>";
         } else {
             // User not found in the student table
-            echo json_encode(["status" => "error", "message" => "You are not allowed to create an account."]);
+            echo "<script>alert('You are not allowed to create an account. Please try again or enroll in this university first.');</script>";
+            echo "<script>window.location.href = 'userLogin.html';</script>";
         }
     }
 } catch (PDOException $e) {

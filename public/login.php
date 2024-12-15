@@ -25,14 +25,12 @@ try {
             $_SESSION['user'] = $user;
             
             // Successful login, send response to frontend
-            header("Location: listOrgs.php");
+            header("Location: listOrgGuest.php");
             exit;
         } else {
             // Incorrect credentials, send a JSON response
-            echo json_encode([
-                "status" => "error",
-                "message" => "Invalid Student ID or password."
-            ]);
+            echo "<script>alert('Invalid username or password. Please try again.');</script>";
+            echo "<script>window.location.href = 'userLogin.html';</script>";
         }
     }
 } catch (PDOException $e) {
